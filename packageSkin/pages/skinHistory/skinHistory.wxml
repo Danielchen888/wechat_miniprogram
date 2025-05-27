@@ -1,0 +1,39 @@
+<!--skinHistory.wxml-->
+<view class="container">
+  <view class="history-header">
+    <text class="page-title">肤质历史记录</text>
+  </view>
+  
+  <view class="history-filter">
+    <view class="filter-item {{currentFilter === 'week' ? 'active' : ''}}" bindtap="changeFilter" data-filter="week">周</view>
+    <view class="filter-item {{currentFilter === 'month' ? 'active' : ''}}" bindtap="changeFilter" data-filter="month">月</view>
+    <view class="filter-item {{currentFilter === 'year' ? 'active' : ''}}" bindtap="changeFilter" data-filter="year">年</view>
+  </view>
+  
+  <view class="history-chart">
+    <image class="chart-image" src="/images/skin_forecast_chart.png" mode="aspectFit"></image>
+  </view>
+  
+  <view class="history-list">
+    <view class="history-item" wx:for="{{historyList}}" wx:key="date">
+      <view class="history-date">
+        <text class="date-text">{{item.date}}</text>
+        <text class="day-text">{{item.day}}</text>
+      </view>
+      <view class="history-content">
+        <view class="score-circle">
+          <text class="score-value">{{item.score}}</text>
+        </view>
+        <view class="history-details">
+          <view class="detail-item" wx:for="{{item.details}}" wx:key="name" wx:for-item="detail">
+            <text class="detail-name">{{detail.name}}</text>
+            <progress class="detail-progress" percent="{{detail.value}}" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+            <text class="detail-value">{{detail.value}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <button class="back-button" bindtap="navigateBack">返回</button>
+</view>

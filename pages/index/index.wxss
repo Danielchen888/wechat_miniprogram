@@ -1,0 +1,938 @@
+/**index.wxss**/
+/* 响应式布局优化 */
+page {
+  background-color: #f8f8f8;
+  font-size: 28rpx;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部标志 */
+.top-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.banner-text {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1rpx;
+}
+
+/* 用户信息卡片 */
+.user-info-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.user-name-date {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+}
+
+.user-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.user-badges {
+  display: flex;
+  margin-left: auto;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30rpx;
+}
+
+.badge-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 6rpx;
+}
+
+.badge-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 物流卡片 */
+.package-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.package-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.package-id {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.package-more {
+  color: #999;
+  font-size: 40rpx;
+}
+
+.package-status {
+  margin-bottom: 20rpx;
+}
+
+.status-tag {
+  display: inline-block;
+  background-color: rgba(0, 255, 0, 0.1);
+  color: #4CAF50;
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+
+.package-route {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.route-point {
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+}
+
+.route-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+
+.route-city {
+  font-size: 32rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.package-progress {
+  margin-top: 20rpx;
+}
+
+.progress-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.progress-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #ddd;
+  z-index: 2;
+}
+
+.progress-dot.active {
+  background-color: #4CAF50;
+}
+
+.progress-line {
+  position: absolute;
+  top: 9rpx;
+  left: 0;
+  right: 0;
+  height: 2rpx;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.progress-status {
+  text-align: center;
+  color: #666;
+  font-size: 26rpx;
+}
+
+/* 音频播放器 */
+.audio-player {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  box-sizing: border-box;
+}
+
+.audio-cover {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.audio-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-title {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+
+.audio-step {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.audio-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.audio-time {
+  font-size: 24rpx;
+  color: #999;
+  width: 80rpx;
+}
+
+.audio-slider {
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.control-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20rpx;
+  font-size: 24rpx;
+}
+
+.play-btn {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #333;
+  color: #fff;
+}
+
+/* 天气卡片 */
+.weather-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.weather-location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.location-icon {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+}
+
+.location-text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.weather-loading {
+  margin-left: auto;
+  font-size: 24rpx;
+  color: #999;
+  animation: blink 1.5s infinite;
+}
+
+.weather-error {
+  padding: 10rpx;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.weather-error text {
+  font-size: 24rpx;
+  color: #e74c3c;
+}
+
+.weather-main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.weather-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.feel-temp {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.weather-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 6rpx;
+}
+
+.weather-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.temp-big {
+  font-size: 80rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.temp-range {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.update-time {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.weather-detail-item {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.detail-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.detail-title {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.detail-value {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+}
+
+.value-num {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-right: 6rpx;
+}
+
+.value-level {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.weather-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  padding: 10rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.refresh-icon {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+  color: #666;
+}
+
+.refresh-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* 用户数据 */
+.user-stats {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stats-value {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.stats-unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 4rpx;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+/* BMI 卡片 */
+.bmi-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.bmi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.bmi-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.bmi-info {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.bmi-value {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.bmi-status {
+  font-size: 28rpx;
+  color: #4CAF50;
+  margin-bottom: 20rpx;
+}
+
+.bmi-progress {
+  margin-top: 30rpx;
+}
+
+.bmi-scale {
+  position: relative;
+  height: 10rpx;
+  background: linear-gradient(to right, #2196F3, #4CAF50, #FFC107, #FF5722);
+  border-radius: 5rpx;
+  margin-bottom: 10rpx;
+}
+
+.scale-marker {
+  position: absolute;
+  top: -10rpx;
+  width: 20rpx;
+  height: 30rpx;
+  background-color: #fff;
+  border: 2rpx solid #333;
+  border-radius: 4rpx;
+  transform: translateX(-50%);
+}
+
+.bmi-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 活动统计 */
+.activity-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.activity-item {
+  width: 48%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.activity-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.activity-info {
+  flex: 1;
+}
+
+.activity-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+}
+
+.activity-value {
+  display: flex;
+  align-items: baseline;
+}
+
+.value-num {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 6rpx;
+}
+
+.value-unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 皮肤分数卡片 */
+.skin-score-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.skin-type {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.score-display {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.score-circle {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+
+.score-value {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.score-details {
+  flex: 1;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.detail-name {
+  width: 80rpx;
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.detail-progress {
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.detail-value {
+  width: 70rpx;
+  font-size: 26rpx;
+  color: #666;
+  text-align: right;
+}
+
+.update-button {
+  width: 100%;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 护肤方案 */
+.skincare-routine {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.tab-container {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 40rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.tab.active {
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.routine-steps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-image {
+  width: 120rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.step-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-order {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+
+.step-name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 肤质预测 */
+.skin-forecast {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.forecast-tabs {
+  display: flex;
+  border-bottom: 2rpx solid #f0f0f0;
+  margin-bottom: 30rpx;
+}
+
+.forecast-tab {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.forecast-tab.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.forecast-tab.active:after {
+  content: '';
+  position: absolute;
+  bottom: -2rpx;
+  left: 30rpx;
+  right: 30rpx;
+  height: 4rpx;
+  background-color: #4CAF50;
+  border-radius: 2rpx;
+}
+
+.forecast-chart {
+  width: 100%;
+  height: 400rpx;
+  margin-bottom: 20rpx;
+}
+
+.chart-image {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  width: 48%;
+}
+
+.legend-color {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.legend-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 底部导航 */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-icon {
+  font-size: 40rpx;
+  margin-bottom: 6rpx;
+}
+
+.tab-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 375px) {
+  .user-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user-badges {
+    margin-left: 0;
+    margin-top: 20rpx;
+  }
+  
+  .weather-details {
+    flex-direction: column;
+  }
+  
+  .weather-detail-item {
+    width: 100%;
+  }
+  
+  .activity-stats {
+    flex-direction: column;
+  }
+  
+  .activity-item {
+    width: 100%;
+    margin-bottom: 20rpx;
+  }
+  
+  .routine-steps {
+    flex-direction: column;
+  }
+  
+  .step {
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+  }
+  
+  .step-image {
+    margin-right: 20rpx;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750rpx;
+    margin: 0 auto;
+  }
+}

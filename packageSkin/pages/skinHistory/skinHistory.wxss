@@ -1,0 +1,172 @@
+/* skinHistory.wxss */
+.container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.history-header {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.history-filter {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 40rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+
+.filter-item {
+  flex: 1;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.filter-item.active {
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.history-chart {
+  width: 100%;
+  height: 300rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.chart-image {
+  width: 100%;
+  height: 100%;
+}
+
+.history-list {
+  width: 100%;
+}
+
+.history-item {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.history-date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.date-text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.day-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-content {
+  display: flex;
+}
+
+.score-circle {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.score-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.history-details {
+  flex: 1;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.detail-name {
+  width: 60rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.detail-progress {
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.detail-value {
+  width: 60rpx;
+  font-size: 24rpx;
+  color: #666;
+  text-align: right;
+}
+
+.back-button {
+  width: 100%;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 375px) {
+  .history-item {
+    padding: 15rpx;
+  }
+  
+  .history-content {
+    flex-direction: column;
+  }
+  
+  .score-circle {
+    margin-bottom: 15rpx;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750rpx;
+    margin: 0 auto;
+  }
+}

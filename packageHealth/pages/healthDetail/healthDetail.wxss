@@ -1,0 +1,243 @@
+/* healthDetail.wxss */
+.container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.health-detail-header {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.health-detail-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.card-header {
+  margin-bottom: 30rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.user-stats {
+  margin-bottom: 40rpx;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stats-value {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.stats-unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 4rpx;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.bmi-section {
+  margin-bottom: 40rpx;
+}
+
+.bmi-value {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.bmi-status {
+  font-size: 28rpx;
+  color: #4CAF50;
+  margin-bottom: 20rpx;
+}
+
+.bmi-progress {
+  margin-top: 30rpx;
+}
+
+.bmi-scale {
+  position: relative;
+  height: 10rpx;
+  background: linear-gradient(to right, #2196F3, #4CAF50, #FFC107, #FF5722);
+  border-radius: 5rpx;
+  margin-bottom: 10rpx;
+}
+
+.scale-marker {
+  position: absolute;
+  top: -10rpx;
+  width: 20rpx;
+  height: 30rpx;
+  background-color: #fff;
+  border: 2rpx solid #333;
+  border-radius: 4rpx;
+  transform: translateX(-50%);
+}
+
+.bmi-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.activity-section {
+  margin-bottom: 40rpx;
+}
+
+.activity-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-item {
+  width: 48%;
+  background-color: #f8f8f8;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.activity-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.activity-info {
+  flex: 1;
+}
+
+.activity-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+  display: block;
+}
+
+.activity-value {
+  display: flex;
+  align-items: baseline;
+}
+
+.value-num {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 6rpx;
+}
+
+.value-unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.health-advice {
+  margin-bottom: 20rpx;
+}
+
+.advice-item {
+  margin-bottom: 20rpx;
+}
+
+.advice-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.advice-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.back-button {
+  width: 100%;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 375px) {
+  .health-detail-card {
+    padding: 20rpx;
+  }
+  
+  .stats-row {
+    flex-wrap: wrap;
+  }
+  
+  .stats-item {
+    width: 50%;
+    margin-bottom: 20rpx;
+  }
+  
+  .activity-stats {
+    flex-direction: column;
+  }
+  
+  .activity-item {
+    width: 100%;
+    margin-bottom: 20rpx;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750rpx;
+    margin: 0 auto;
+  }
+}

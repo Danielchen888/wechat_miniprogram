@@ -1,0 +1,297 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部标志 -->
+  <view class="top-banner">
+    <text class="banner-text">Base Logic.</text>
+  </view>
+  
+  <!-- 用户信息 -->
+  <view class="user-info-card">
+    <view class="user-header">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-name-date">
+        <text class="user-name">{{userInfo.nickName}}</text>
+        <text class="user-date">{{userInfo.date}}</text>
+      </view>
+      <view class="user-badges">
+        <view class="badge" wx:for="{{userInfo.badges}}" wx:key="index">
+          <image class="badge-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <text class="badge-text">{{item.count || item.text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 物流信息 -->
+  <view class="package-card">
+    <view class="package-header">
+      <text class="package-id">SF {{package.id}}</text>
+      <text class="package-more">...</text>
+    </view>
+    <view class="package-status">
+      <text class="status-tag">{{package.status}}</text>
+    </view>
+    <view class="package-route">
+      <view class="route-point">
+        <text class="route-date">{{package.fromDate}}</text>
+        <text class="route-city">{{package.fromCity}}</text>
+      </view>
+      <view class="route-point">
+        <text class="route-date">{{package.toDate}}</text>
+        <text class="route-city">{{package.toCity}}</text>
+      </view>
+    </view>
+    <view class="package-progress">
+      <view class="progress-bar">
+        <view class="progress-dot {{index < package.currentStep ? 'active' : ''}}" 
+              wx:for="{{[0, 1, 2, 3, 4]}}" wx:key="index"></view>
+        <view class="progress-line"></view>
+      </view>
+      <text class="progress-status">{{package.statusText}}</text>
+    </view>
+  </view>
+
+  <!-- 音频播放器 -->
+  <view class="audio-player">
+    <image class="audio-cover" src="{{audio.coverImage}}" mode="aspectFill"></image>
+    <view class="audio-info">
+      <text class="audio-title">{{audio.title}}</text>
+      <text class="audio-step">{{audio.step}}</text>
+      <view class="audio-progress">
+        <text class="audio-time">{{audio.currentTime}}</text>
+        <slider class="audio-slider" min="0" max="100" value="30" activeColor="#333" backgroundColor="#ddd" block-size="12"></slider>
+        <text class="audio-time">{{audio.totalTime}}</text>
+      </view>
+      <view class="audio-controls">
+        <view class="control-btn prev-btn">×</view>
+        <view class="control-btn play-btn">‖</view>
+        <view class="control-btn next-btn">⟳</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 天气信息 -->
+  <view class="weather-card">
+    <view class="weather-location">
+      <text class="location-icon">📍</text>
+      <text class="location-text">{{weather.location}}</text>
+      <text wx:if="{{weatherLoading}}" class="weather-loading">加载中...</text>
+    </view>
+    
+    <!-- 天气加载错误提示 -->
+    <view wx:if="{{weatherError}}" class="weather-error">
+      <text>{{weatherError}}</text>
+    </view>
+    
+    <view class="weather-main">
+      <view class="weather-left">
+        <image class="weather-icon" src="{{weather.icon}}" mode="aspectFit"></image>
+        <text class="feel-temp">体感温度 {{weather.feelTemp}}°C</text>
+        <text wx:if="{{weather.text}}" class="weather-text">{{weather.text}}</text>
+      </view>
+      <view class="weather-right">
+        <text class="temp-big">{{weather.temperature}}°</text>
+        <text class="temp-range">{{weather.range}}</text>
+        <text wx:if="{{weather.updateTime}}" class="update-time">更新: {{weather.updateTime}}</text>
+      </view>
+    </view>
+    <view class="weather-details">
+      <view class="weather-detail-item">
+        <image class="detail-icon" src="{{weather.uv.icon}}" mode="aspectFit"></image>
+        <text class="detail-title">紫外线</text>
+        <view class="detail-value">
+          <text class="value-num">{{weather.uv.value}}</text>
+          <text class="value-level">{{weather.uv.level}}</text>
+        </view>
+      </view>
+      <view class="weather-detail-item">
+        <image class="detail-icon" src="{{weather.pollution.icon}}" mode="aspectFit"></image>
+        <text class="detail-title">污染物</text>
+        <view class="detail-value">
+          <text class="value-num">{{weather.pollution.value}}</text>
+          <text class="value-level">{{weather.pollution.level}}</text>
+        </view>
+      </view>
+      <view class="weather-detail-item">
+        <image class="detail-icon" src="{{weather.humidity.icon}}" mode="aspectFit"></image>
+        <text class="detail-title">湿度</text>
+        <view class="detail-value">
+          <text class="value-num">{{weather.humidity.value}}</text>
+          <text class="value-level">{{weather.humidity.level}}</text>
+        </view>
+      </view>
+      <view class="weather-detail-item">
+        <image class="detail-icon" src="{{weather.wind.icon}}" mode="aspectFit"></image>
+        <text class="detail-title">风力</text>
+        <view class="detail-value">
+          <text class="value-num">{{weather.wind.value}}</text>
+          <text class="value-level">{{weather.wind.level}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 刷新按钮 -->
+    <view class="weather-refresh" bindtap="fetchWeatherData">
+      <text class="refresh-icon">⟳</text>
+      <text class="refresh-text">刷新天气</text>
+    </view>
+  </view>
+
+  <!-- 用户数据 -->
+  <view class="user-stats">
+    <view class="stats-row">
+      <view class="stats-item">
+        <text class="stats-value">{{userStats.gender}}</text>
+        <text class="stats-label">性别</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{userStats.age}}</text>
+        <text class="stats-unit">岁</text>
+        <text class="stats-label">年龄</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{userStats.height}}</text>
+        <text class="stats-unit">cm</text>
+        <text class="stats-label">身高</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{userStats.weight}}</text>
+        <text class="stats-unit">kg</text>
+        <text class="stats-label">体重</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- BMI 信息 -->
+  <view class="bmi-card">
+    <view class="bmi-header">
+      <view class="bmi-title">
+        <text>BMI 分数</text>
+        <text class="bmi-info">ⓘ</text>
+      </view>
+      <text class="bmi-value">{{userStats.bmi}}</text>
+    </view>
+    <view class="bmi-status">{{userStats.bmiStatus}}</view>
+    <view class="bmi-progress">
+      <view class="bmi-scale">
+        <view class="scale-marker" style="left: {{(userStats.bmiRange.current - userStats.bmiRange.min) / (userStats.bmiRange.max - userStats.bmiRange.min) * 100}}%"></view>
+        <view class="scale-bar"></view>
+      </view>
+      <view class="bmi-labels">
+        <text class="bmi-min">{{userStats.bmiRange.min}}</text>
+        <text class="bmi-target">{{userStats.bmiRange.target}}</text>
+        <text class="bmi-max">{{userStats.bmiRange.max}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 步数和卡路里 -->
+  <view class="activity-stats">
+    <view class="activity-item">
+      <image class="activity-icon" src="{{userStats.steps.icon}}" mode="aspectFit"></image>
+      <view class="activity-info">
+        <text class="activity-title">步数</text>
+        <view class="activity-value">
+          <text class="value-num">{{userStats.steps.value}}</text>
+          <text class="value-unit">{{userStats.steps.unit}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="activity-item">
+      <image class="activity-icon" src="{{userStats.calories.icon}}" mode="aspectFit"></image>
+      <view class="activity-info">
+        <text class="activity-title">卡路里</text>
+        <view class="activity-value">
+          <text class="value-num">{{userStats.calories.value}}</text>
+          <text class="value-unit">{{userStats.calories.unit}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 皮肤分数 -->
+  <view class="skin-score-card">
+    <view class="card-header">
+      <text class="card-title">我的皮肤分数</text>
+      <text class="skin-type">{{skinType}}</text>
+    </view>
+    <view class="score-display">
+      <view class="score-circle">
+        <text class="score-value">{{skinScore}}</text>
+      </view>
+      <view class="score-details">
+        <view class="detail-item" wx:for="{{skinDetails}}" wx:key="name">
+          <text class="detail-name">{{item.name}}</text>
+          <progress class="detail-progress" percent="{{item.value}}" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+          <text class="detail-value">{{item.value}}%</text>
+        </view>
+      </view>
+    </view>
+    <button class="update-button" bindtap="updateSkinInfo">更新肤质信息</button>
+  </view>
+
+  <!-- 护肤方案 -->
+  <view class="skincare-routine">
+    <view class="section-title">我的护肤方案</view>
+    
+    <view class="tab-container">
+      <view class="tab {{skinCareRoutine.activeTab === 'morning' ? 'active' : ''}}" 
+            bindtap="switchSkinCareTab" data-tab="morning">早间方案</view>
+      <view class="tab {{skinCareRoutine.activeTab === 'evening' ? 'active' : ''}}" 
+            bindtap="switchSkinCareTab" data-tab="evening">晚间方案</view>
+    </view>
+    
+    <view class="routine-steps">
+      <view class="step" wx:for="{{skinCareRoutine.steps}}" wx:key="name">
+        <image class="step-image" src="{{item.image}}" mode="aspectFit"></image>
+        <view class="step-info">
+          <text class="step-order">{{item.title}}</text>
+          <text class="step-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 肤质预测 -->
+  <view class="skin-forecast">
+    <view class="section-title">肤质预测</view>
+    
+    <view class="forecast-tabs">
+      <view class="forecast-tab {{skinForecast.activeTab === 'overview' ? 'active' : ''}}" 
+            bindtap="switchForecastTab" data-tab="overview">总览</view>
+      <view class="forecast-tab {{skinForecast.activeTab === 'month' ? 'active' : ''}}" 
+            bindtap="switchForecastTab" data-tab="month">月</view>
+      <view class="forecast-tab {{skinForecast.activeTab === 'season' ? 'active' : ''}}" 
+            bindtap="switchForecastTab" data-tab="season">季度</view>
+      <view class="forecast-tab {{skinForecast.activeTab === 'year' ? 'active' : ''}}" 
+            bindtap="switchForecastTab" data-tab="year">年</view>
+    </view>
+    
+    <view class="forecast-chart">
+      <image class="chart-image" src="{{skinForecast.chartImage}}" mode="aspectFit"></image>
+    </view>
+    
+    <view class="chart-legend">
+      <view class="legend-item" wx:for="{{skinForecast.indicators}}" wx:key="name">
+        <view class="legend-color" style="background-color: {{item.color}}"></view>
+        <text class="legend-text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部导航 -->
+  <view class="tab-bar">
+    <view class="tab-item">
+      <view class="tab-icon">⟲</view>
+      <text class="tab-text">互动空间</text>
+    </view>
+    <view class="tab-item">
+      <view class="tab-icon">📷</view>
+      <text class="tab-text">测肤</text>
+    </view>
+    <view class="tab-item">
+      <view class="tab-icon">⚙</view>
+      <text class="tab-text">我的</text>
+    </view>
+  </view>
+</view>

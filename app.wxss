@@ -1,0 +1,555 @@
+/**app.wxss**/
+page {
+  background-color: #FAFAFA;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+.card {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 17px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 7px;
+  background: #EFF1F2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: #464747;
+  border-radius: 4px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #F4F4F4;
+  margin: 16px 0;
+}
+
+.home-indicator {
+  width: 144px;
+  height: 5px;
+  background: #000000;
+  border-radius: 100px;
+  position: fixed;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+}
+
+/* 顶部导航栏样式 */
+.nav-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.nav-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* 用户信息样式 */
+.user-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.user-name-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.user-date {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.user-badges {
+  display: flex;
+  gap: 16px;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+}
+
+.badge-text {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* 物流卡片样式 */
+.logistics-card {
+  padding: 16px;
+}
+
+.logistics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tracking-number {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.logistics-status {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(46, 213, 115, 0.1);
+  border-radius: 12px;
+  color: #2ED573;
+  font-size: 12px;
+}
+
+.logistics-route {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.route-point {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.route-date {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+}
+
+.route-city {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.logistics-progress {
+  position: relative;
+  height: 40px;
+  margin: 24px 0 8px;
+}
+
+.progress-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #E0E0E0;
+  transform: translateY(-50%);
+}
+
+.progress-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  background: #E0E0E0;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-dot.active {
+  background: #2ED573;
+}
+
+.progress-icon {
+  width: 40px;
+  height: 40px;
+  background: #F5F5F5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.logistics-status-text {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 8px;
+}
+
+/* 音频播放器样式 */
+.audio-card {
+  padding: 16px;
+}
+
+.audio-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.audio-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 16px;
+  background: #000;
+}
+
+.audio-title-container {
+  flex: 1;
+}
+
+.audio-category {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+}
+
+.audio-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.audio-progress-container {
+  margin-bottom: 16px;
+}
+
+.audio-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 8px;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.control-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F5F5;
+}
+
+.play-button {
+  background: #333;
+}
+
+/* 天气卡片样式 */
+.weather-card {
+  padding: 16px;
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.location-icon {
+  margin-right: 8px;
+}
+
+.weather-location {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.weather-main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.weather-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.weather-feel {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.weather-temp {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.weather-range {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.weather-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+.detail-icon {
+  margin-bottom: 8px;
+}
+
+.detail-name {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.detail-level {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* 个人数据样式 */
+.personal-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #F4F4F4;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.data-unit {
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+.data-label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* BMI卡片样式 */
+.bmi-card {
+  padding: 16px;
+}
+
+.bmi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.bmi-title {
+  display: flex;
+  align-items: center;
+}
+
+.bmi-title-text {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.info-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.bmi-status {
+  font-size: 14px;
+  color: #9DD030;
+}
+
+.bmi-value {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.bmi-scale {
+  position: relative;
+  height: 8px;
+  background: linear-gradient(to right, #6DCAE3, #9DD030, #FDC944, #FF8C39);
+  border-radius: 4px;
+  margin: 24px 0 8px;
+}
+
+.bmi-marker {
+  position: absolute;
+  top: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #9DD030;
+  transform: translateX(-50%);
+}
+
+.bmi-ranges {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* 健康数据统计样式 */
+.health-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}

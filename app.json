@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "健康管理",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "subpackages": [
+    {
+      "root": "packageSkin",
+      "pages": [
+        "pages/skinDetail/skinDetail",
+        "pages/skinHistory/skinHistory"
+      ]
+    },
+    {
+      "root": "packageHealth",
+      "pages": [
+        "pages/healthDetail/healthDetail",
+        "pages/healthHistory/healthHistory"
+      ]
+    }
+  ],
+  "usingComponents": {},
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,122 @@
+/* skinDetail.wxss */
+.container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.skin-detail-header {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.skin-detail-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.skin-type {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.detail-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.detail-name {
+  width: 80rpx;
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.detail-progress {
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.detail-value {
+  width: 70rpx;
+  font-size: 26rpx;
+  color: #666;
+  text-align: right;
+}
+
+.advice-item {
+  margin-bottom: 20rpx;
+}
+
+.advice-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.advice-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.back-button {
+  width: 100%;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 375px) {
+  .skin-detail-card {
+    padding: 20rpx;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750rpx;
+    margin: 0 auto;
+  }
+}

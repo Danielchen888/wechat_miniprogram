@@ -1,0 +1,55 @@
+<!--skinDetail.wxml-->
+<view class="container">
+  <view class="skin-detail-header">
+    <text class="page-title">皮肤详情</text>
+  </view>
+  
+  <view class="skin-detail-card">
+    <view class="card-header">
+      <text class="card-title">皮肤分析报告</text>
+      <text class="skin-type">混合性</text>
+    </view>
+    
+    <view class="detail-section">
+      <text class="section-title">皮肤状况</text>
+      <view class="detail-item">
+        <text class="detail-name">水分</text>
+        <progress class="detail-progress" percent="85" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+        <text class="detail-value">85%</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-name">油分</text>
+        <progress class="detail-progress" percent="60" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+        <text class="detail-value">60%</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-name">弹性</text>
+        <progress class="detail-progress" percent="75" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+        <text class="detail-value">75%</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-name">色素</text>
+        <progress class="detail-progress" percent="65" stroke-width="3" activeColor="#4CAF50" backgroundColor="#E0E0E0" />
+        <text class="detail-value">65%</text>
+      </view>
+    </view>
+    
+    <view class="detail-section">
+      <text class="section-title">护肤建议</text>
+      <view class="advice-item">
+        <text class="advice-title">清洁</text>
+        <text class="advice-content">使用温和的洁面产品，避免过度清洁导致皮肤屏障受损。</text>
+      </view>
+      <view class="advice-item">
+        <text class="advice-title">保湿</text>
+        <text class="advice-content">选择轻薄质地的保湿产品，T区可以使用控油产品。</text>
+      </view>
+      <view class="advice-item">
+        <text class="advice-title">防晒</text>
+        <text class="advice-content">日常防晒不可少，选择SPF30以上的防晒产品。</text>
+      </view>
+    </view>
+  </view>
+  
+  <button class="back-button" bindtap="navigateBack">返回</button>
+</view>

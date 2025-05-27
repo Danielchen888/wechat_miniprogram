@@ -1,0 +1,52 @@
+<!--healthHistory.wxml-->
+<view class="container">
+  <view class="history-header">
+    <text class="page-title">健康历史记录</text>
+  </view>
+  
+  <view class="history-filter">
+    <view class="filter-item {{currentFilter === 'week' ? 'active' : ''}}" bindtap="changeFilter" data-filter="week">周</view>
+    <view class="filter-item {{currentFilter === 'month' ? 'active' : ''}}" bindtap="changeFilter" data-filter="month">月</view>
+    <view class="filter-item {{currentFilter === 'year' ? 'active' : ''}}" bindtap="changeFilter" data-filter="year">年</view>
+  </view>
+  
+  <view class="history-chart">
+    <image class="chart-image" src="/images/skin_forecast_chart.png" mode="aspectFit"></image>
+  </view>
+  
+  <view class="history-list">
+    <view class="history-item" wx:for="{{historyList}}" wx:key="date">
+      <view class="history-date">
+        <text class="date-text">{{item.date}}</text>
+        <text class="day-text">{{item.day}}</text>
+      </view>
+      <view class="history-content">
+        <view class="bmi-section">
+          <view class="bmi-header">
+            <text class="bmi-label">BMI</text>
+            <text class="bmi-value">{{item.bmi}}</text>
+          </view>
+          <text class="bmi-status">{{item.bmiStatus}}</text>
+        </view>
+        <view class="activity-data">
+          <view class="activity-item">
+            <text class="activity-label">步数</text>
+            <view class="activity-value">
+              <text class="value-num">{{item.steps.value}}</text>
+              <text class="value-unit">{{item.steps.unit}}</text>
+            </view>
+          </view>
+          <view class="activity-item">
+            <text class="activity-label">卡路里</text>
+            <view class="activity-value">
+              <text class="value-num">{{item.calories.value}}</text>
+              <text class="value-unit">{{item.calories.unit}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <button class="back-button" bindtap="navigateBack">返回</button>
+</view>

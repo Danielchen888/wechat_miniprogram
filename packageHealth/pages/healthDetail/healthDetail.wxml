@@ -1,0 +1,99 @@
+<!--healthDetail.wxml-->
+<view class="container">
+  <view class="health-detail-header">
+    <text class="page-title">健康详情</text>
+  </view>
+  
+  <view class="health-detail-card">
+    <view class="card-header">
+      <text class="card-title">健康数据详情</text>
+    </view>
+    
+    <view class="user-stats">
+      <view class="stats-row">
+        <view class="stats-item">
+          <text class="stats-value">女</text>
+          <text class="stats-label">性别</text>
+        </view>
+        <view class="stats-item">
+          <text class="stats-value">25</text>
+          <text class="stats-unit">岁</text>
+          <text class="stats-label">年龄</text>
+        </view>
+        <view class="stats-item">
+          <text class="stats-value">169</text>
+          <text class="stats-unit">cm</text>
+          <text class="stats-label">身高</text>
+        </view>
+        <view class="stats-item">
+          <text class="stats-value">65</text>
+          <text class="stats-unit">kg</text>
+          <text class="stats-label">体重</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="bmi-section">
+      <view class="section-header">
+        <text class="section-title">BMI 指数</text>
+        <text class="bmi-value">21.2</text>
+      </view>
+      <view class="bmi-status">正常</view>
+      <view class="bmi-progress">
+        <view class="bmi-scale">
+          <view class="scale-marker" style="left: 27%"></view>
+          <view class="scale-bar"></view>
+        </view>
+        <view class="bmi-labels">
+          <text class="bmi-min">18.5</text>
+          <text class="bmi-target">24.0</text>
+          <text class="bmi-max">28.0</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="activity-section">
+      <text class="section-title">活动数据</text>
+      <view class="activity-stats">
+        <view class="activity-item">
+          <view class="activity-icon">👟</view>
+          <view class="activity-info">
+            <text class="activity-title">步数</text>
+            <view class="activity-value">
+              <text class="value-num">1.8</text>
+              <text class="value-unit">公里/天</text>
+            </view>
+          </view>
+        </view>
+        <view class="activity-item">
+          <view class="activity-icon">🔥</view>
+          <view class="activity-info">
+            <text class="activity-title">卡路里</text>
+            <view class="activity-value">
+              <text class="value-num">6215</text>
+              <text class="value-unit">消耗</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="health-advice">
+      <text class="section-title">健康建议</text>
+      <view class="advice-item">
+        <text class="advice-title">饮食</text>
+        <text class="advice-content">保持均衡饮食，多摄入蔬果，控制精制糖和高脂食物的摄入。</text>
+      </view>
+      <view class="advice-item">
+        <text class="advice-title">运动</text>
+        <text class="advice-content">建议每周进行150分钟中等强度有氧运动，如快走、游泳或骑自行车。</text>
+      </view>
+      <view class="advice-item">
+        <text class="advice-title">睡眠</text>
+        <text class="advice-content">保持每晚7-8小时的充足睡眠，维持规律的作息时间。</text>
+      </view>
+    </view>
+  </view>
+  
+  <button class="back-button" bindtap="navigateBack">返回</button>
+</view>
