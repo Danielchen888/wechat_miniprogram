@@ -41,7 +41,7 @@
   "projectname": "健康皮肤管理小程序",
   "condition": {},
   "compileType": "miniprogram",
-  "libVersion": "3.8.5",
+  "libVersion": "3.8.7",
   "packOptions": {
     "ignore": [],
     "include": []
