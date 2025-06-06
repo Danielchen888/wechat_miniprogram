@@ -559,23 +559,22 @@ page {
   color: #999;
 }
 
-/* 活动统计 */
+/* 步数和卡路里 */
 .activity-stats {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
   margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  position: relative;
 }
 
 .activity-item {
-  width: 48%;
-  background-color: #fff;
-  border-radius: 20rpx;
-  padding: 20rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
-  box-sizing: border-box;
+  margin-bottom: 20rpx;
 }
 
 .activity-icon {
@@ -590,7 +589,7 @@ page {
 
 .activity-title {
   font-size: 28rpx;
-  font-weight: bold;
+  color: #666;
   margin-bottom: 6rpx;
 }
 
@@ -600,14 +599,54 @@ page {
 }
 
 .value-num {
-  font-size: 32rpx;
+  font-size: 36rpx;
   font-weight: bold;
   margin-right: 6rpx;
 }
 
 .value-unit {
   font-size: 24rpx;
+  color: #666;
+}
+
+.activity-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  padding: 10rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.refresh-icon {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+  color: #666;
+}
+
+.refresh-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.activity-loading {
+  text-align: center;
+  font-size: 24rpx;
   color: #999;
+  margin-top: 10rpx;
+  animation: blink 1.5s infinite;
+}
+
+.activity-error {
+  padding: 10rpx;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+}
+
+.activity-error text {
+  font-size: 24rpx;
+  color: #e74c3c;
 }
 
 /* 皮肤分数卡片 */

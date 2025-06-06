@@ -1,6 +1,7 @@
 // index.js
 const app = getApp()
 const weatherService = require('../../utils/weatherService.js')
+const stepService = require('../../utils/stepService.js')
 
 Page({
   data: {
@@ -29,33 +30,33 @@ Page({
       step: '第二步：精华',
       currentTime: '00:14',
       totalTime: '02:00',
-      coverImage: '/images/audio_cover.png'
+      coverImage: '/images/icons/audio_icon.svg'
     },
     weather: {
       location: '徐汇区·上海',
-      icon: '/images/sunny.png',
+      icon: '/images/icons/sunny.svg',
       temperature: 17,
       feelTemp: 15,
       range: '20/9°C',
       text: '晴',
       updateTime: '',
       uv: {
-        icon: '/images/uv_icon.png',
+        icon: '/images/icons/uv_icon.svg',
         value: '8.3',
         level: '强'
       },
       pollution: {
-        icon: '/images/pollution_icon.png',
+        icon: '/images/icons/pollution_icon.svg',
         value: '137',
         level: '轻度'
       },
       humidity: {
-        icon: '/images/humidity_icon.png',
+        icon: '/images/icons/humidity_icon.svg',
         value: '53%',
         level: '中'
       },
       wind: {
-        icon: '/images/wind_icon.png',
+        icon: '/images/icons/wind_icon.svg',
         value: '3级',
         level: '低'
       }
@@ -76,12 +77,12 @@ Page({
         current: 21.2
       },
       steps: {
-        icon: '/images/steps_icon.png',
+        icon: '/images/icons/steps_icon.svg',
         value: 1.8,
         unit: '公里/天'
       },
       calories: {
-        icon: '/images/calories_icon.png',
+        icon: '/images/icons/calories_icon.svg',
         value: 6215,
         unit: '消耗'
       }
@@ -128,6 +129,51 @@ Page({
   onLoad() {
     // 页面加载时执行的逻辑
     this.fetchWeatherData();
+    this.fetchStepsAndCalories();
+  },
+  
+  // 获取微信步数和卡路里消耗
+  fetchStepsAndCalories() {
+    // 设置加载状态
+    this.setData({
+      stepsLoading: true,
+      stepsError: ''
+    });
+    
+    // 获取用户信息（用于卡路里计算）
+    const userInfo = {
+      gender: this.data.userStats.gender,
+      weight: this.data.userStats.weight
+    };
+    
+    // 调用步数服务获取数据
+    stepService.getStepsAndCalories(userInfo)
+      .then((data) => {
+        // 更新页面数据
+        this.setData({
+          'userStats.steps.value': data.steps,
+          'userStats.steps.unit': data.unit,
+          'userStats.calories.value': data.calories,
+          'userStats.calories.unit': data.caloriesUnit,
+          stepsLoading: false
+        });
+        
+        console.log('步数和卡路里数据更新成功:', data);
+      })
+      .catch((err) => {
+        console.error('获取步数和卡路里数据失败:', err);
+        this.setData({
+          stepsLoading: false,
+          stepsError: `获取步数数据失败: ${err.message}`
+        });
+        
+        // 显示错误提示
+        wx.showToast({
+          title: '步数数据获取失败',
+          icon: 'none',
+          duration: 2000
+        });
+      });
   },
   
   // 获取天气数据
@@ -255,9 +301,24 @@ Page({
       url: '/packageSkin/pages/skinDetail/skinDetail'
     });
   },
+  navigateToSkinTest() {
+    wx.navigateTo({
+      url: '/packageSkin/pages/skinTest/skinTest'
+    });
+  },
   navigateToHealthDetail() {
     wx.navigateTo({
       url: '/packageHealth/pages/healthDetail/healthDetail'
+    });
+  },
+  
+  // 手动刷新步数和卡路里数据
+  refreshStepsAndCalories() {
+    this.fetchStepsAndCalories();
+    wx.showToast({
+      title: '正在刷新步数数据',
+      icon: 'loading',
+      duration: 1000
     });
   }
 })

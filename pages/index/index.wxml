@@ -207,6 +207,19 @@
         </view>
       </view>
     </view>
+    <!-- 刷新按钮 -->
+    <view class="activity-refresh" bindtap="refreshStepsAndCalories">
+      <text class="refresh-icon">⟳</text>
+      <text class="refresh-text">刷新步数</text>
+    </view>
+    <!-- 加载状态 -->
+    <view wx:if="{{stepsLoading}}" class="activity-loading">
+      <text>加载中...</text>
+    </view>
+    <!-- 错误提示 -->
+    <view wx:if="{{stepsError}}" class="activity-error">
+      <text>{{stepsError}}</text>
+    </view>
   </view>
 
   <!-- 皮肤分数 -->
@@ -285,7 +298,7 @@
       <view class="tab-icon">⟲</view>
       <text class="tab-text">互动空间</text>
     </view>
-    <view class="tab-item">
+    <view class="tab-item" bindtap="navigateToSkinTest">
       <view class="tab-icon">📷</view>
       <text class="tab-text">测肤</text>
     </view>
